@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class MasterMind implements Play {
-    //The main method which keeps the game playing till its won or reaches the max guess count
+    //The main method which keeps the game playing till won or reaches the max guess count
     public static void play() {
         int count = 0;
         GamePegs rPeg = new GamePegs(4, false);//Initializes the hidden order of pegs
@@ -36,6 +36,10 @@ public class MasterMind implements Play {
     public static void gameLost(GamePegs peg){
         System.out.println("You Lost!");
         System.out.println("The correct order was " + peg.getGuessOrder());
+        playAgain();
+    }
+
+      public static void playAgain(){
         boolean valid = false;
         String input = null;
         while(!valid){
@@ -61,7 +65,7 @@ public class MasterMind implements Play {
     }
     //This takes the input from the user and checks the input
     //This method goes through and checks letter by letter to label
-    // whether the guess was right or wrong returning what the response is
+    //whether the guess was right or wrong returning what the response is
     public static String check(GamePegs rPegs,Peg gamePeg) {
         String response = "";
         ArrayList<String> random = rPegs.copyOrder();

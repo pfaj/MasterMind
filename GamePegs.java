@@ -27,6 +27,7 @@ public class GamePegs extends Peg{
     public void setWin(boolean win) {
         if(win){
             System.out.println("You won! \nThe order was:" + getGuessOrder());
+            MasterMind.playAgain();
         }
         this.win = win;
     }
